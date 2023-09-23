@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { IContent } from 'src/app/shared/interfaces/content.interface';
+import { ContentService } from 'src/app/shared/services/content.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  private readonly _contentService = inject(ContentService);
+
+  public content: IContent[] = [];
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._contentService.getAll().subscribe({
+      next: (contentData) => {
+        this.content = contentData;
+      },
+      error: () => {},
+    });
+  }
 }
