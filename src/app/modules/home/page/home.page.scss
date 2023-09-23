@@ -1,0 +1,15 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .box {
+    display: block;
+    border: 1px solid #000;
+    padding: 16px;
+  }
+}
