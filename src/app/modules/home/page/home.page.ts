@@ -22,4 +22,12 @@ export class HomePage implements OnInit {
       error: () => {},
     });
   }
+
+  public onLoad(event: string) {
+    console.log('onLoad:', event);
+  }
+
+  public onError(event: string) {
+    console.log('onLoad:', event);
+  }
 }

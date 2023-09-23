@@ -1,6 +1,13 @@
+<div markdown katex src="assets/markdown/test.md" (load)="onLoad($event)" (error)="onError($event)">
+</div>
+
 <section class="home">
   <div class="box" *ngFor="let item of content">
     <p class="bold">{{ item.title }}</p>
+    <div>
+      <span class="bold">Input: </span>
+      <span>{{ item.description }}</span>
+    </div>
     <markdown katex ngPreserveWhitespaces>
       {{ item.description }}
     </markdown>
